@@ -4,3 +4,5 @@ twbs:bootstrap
 accounts-ui
 accounts-password
 accounts-base
+facebook
+accounts-facebook
