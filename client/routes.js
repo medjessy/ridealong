@@ -4,5 +4,8 @@ Router.configure({
 });
 
 Router.route('/', function () {
-  this.render('home');
+  this.render('login');
+});
+Router.route('/login', function () {
+  this.render('login');
 });
