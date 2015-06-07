@@ -7,11 +7,15 @@ if (Meteor.isClient) {
     smilemapOptions: function() {
       // Make sure the maps API has loaded
       if (GoogleMaps.loaded()) {
+
+        // Map styles from https://snazzymaps.com/style/21568/racafe
+        var mapStyle = [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#c1c1c1"},{"visibility":"on"}]}]
         // Map initialization options
         return {
           center: new google.maps.LatLng(30.2669444, -97.7427778),
           zoom: 15,
-          disableDefaultUI: true
+          disableDefaultUI: true,
+          styles: mapStyle
         };
       }
     }
@@ -36,9 +40,9 @@ if (Meteor.isClient) {
         var smilemap = map.instance;
         var center = smilemap.getCenter();
         console.log("center", center);
-        $('#findsearch').text(center.A);
+        $('#findtext').text(center.A + " " + center.F);
       });
-
     });
   });
+
 }
