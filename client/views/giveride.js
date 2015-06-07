@@ -1,10 +1,11 @@
 if (Meteor.isClient) {
 
   var initAutoComplete = function() {
-        var autocomplete = new google.maps.places.Autocomplete(
-          (document.getElementById('rideFrom')),{types: ['geocode'] }
-        );
+    var autocomplete = new google.maps.places.Autocomplete(
+      (document.getElementById('rideFrom')),{types: ['geocode'] }
+    );
   };
+  
   Template.giveride.rendered = initAutoComplete;
 
   Template.giveride.events({

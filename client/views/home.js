@@ -10,7 +10,8 @@ if (Meteor.isClient) {
         // Map initialization options
         return {
           center: new google.maps.LatLng(30.2669444, -97.7427778),
-          zoom: 8
+          zoom: 15,
+          disableDefaultUI: true
         };
       }
     }
