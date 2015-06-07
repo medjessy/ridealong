@@ -5,7 +5,7 @@ if (Meteor.isClient) {
       (document.getElementById('rideFrom')),{types: ['geocode'] }
     );
   };
-  
+
   Template.giveride.rendered = initAutoComplete;
 
   Template.giveride.events({
@@ -27,6 +27,10 @@ if (Meteor.isClient) {
       var autocomplete = new google.maps.places.Autocomplete(e.target.rideFrom.value);
       console.log(autocomplete);
 
+      google.maps.event.addListener(mapClass.map, 'dragend', function() {
+        var center = mapClass.map.getCenter();
+        console.log("center", center);
+      });
     }
   });
 }
