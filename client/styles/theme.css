@@ -13,6 +13,7 @@ html, body {
     margin: 0;
 }
 
+/* transparency block */
 #transp {
     background-color: #FEC207;
     position: absolute;
@@ -24,6 +25,7 @@ html, body {
     z-index: 10;
 }
 
+/* text overlay for transparency block */ 
 #findsearch {
     color: #000;
     position: absolute;
@@ -34,11 +36,22 @@ html, body {
     z-index: 20;
 }
 
+#centermarker {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-image: url('/img/marker.png');
+    background-color: #0f0;
+    top: 50%;
+    left: 50%;
+    z-index: 30;
+}
+
 .map-div {
     position: absolute;
     top: 50px;
     left: 0px;
     width: 100%;
     height: 100%;
-    background-image: url('/client/img/placeholder.jpg');
+    background-image: url('/img/placeholder.jpg');
 }
