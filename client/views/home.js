@@ -39,8 +39,15 @@ if (Meteor.isClient) {
       google.maps.event.addListener(map.instance, 'dragend', function() {
         var smilemap = map.instance;
         var center = smilemap.getCenter();
-        console.log("center", center);
+        var lat = center.A;
+        var lng = center.F;
+        // reactive client session variable ... lol
         $('#findtext').text(center.A + " " + center.F);
+        var rgeocoded = Meteor.call('reverseGeocode',lat,lng);
+
+        console.log("center", center);
+        console.log("rgeocoded", rgeocoded);
+        
       });
     });
   });
