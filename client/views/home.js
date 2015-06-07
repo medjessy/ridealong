@@ -1,11 +1,29 @@
-Template.home.helpers({
-  myAppVariable: function() {
-    return Session.get('myAppVariable');
-  }
-});
+if (Meteor.isClient) {
+  Meteor.startup(function() {
+    GoogleMaps.load({'libraries' : 'places'});
+  });
 
-Template.home.events({
-  'click button': function(event, template) {
-    Session.set('myAppVariable', Math.floor(Math.random() * 11));
-  }
-});
+  Template.home.helpers({
+    exampleMapOptions: function() {
+      // Make sure the maps API has loaded
+      if (GoogleMaps.loaded()) {
+        // Map initialization options
+        return {
+          center: new google.maps.LatLng(30.2669444, -97.7427778),
+          zoom: 8
+        };
+      }
+    }
+  });
+
+  Template.home.onCreated(function() {
+    // We can use the `ready` callback to interact with the map API once the map is ready.
+    GoogleMaps.ready('exampleMap', function(map) {
+      // Add a marker to the map once it's ready
+      var marker = new google.maps.Marker({
+        position: map.options.center,
+        map: map.instance
+      });
+    });
+  });
+}

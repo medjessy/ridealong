@@ -19,7 +19,7 @@ Template.login.events({
         else{
           // The user has been logged in.
           console.log("User login " + Meteor.user().username );
-
+          Router.go("/home");
         }
       });
          return false;
